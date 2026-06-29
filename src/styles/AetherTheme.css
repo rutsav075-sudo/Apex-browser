@@ -1,0 +1,95 @@
+:root {
+    /* Reference Theme Colors */
+    --bg-deep: #0f0f12;
+    /* Very dark sidebar background */
+    --bg-main: #18181b;
+    /* Main content dark grey */
+    --bg-card: #27272a;
+    /* Lighter grey for cards */
+
+    --accent-red: #ff4757;
+    /* Coral Red from reference */
+    --accent-glow: rgba(255, 71, 87, 0.4);
+
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+
+    --glass-border: rgba(255, 255, 255, 0.05);
+
+    /* Legacy variables mapping */
+    --void-black: var(--bg-deep);
+    --soft-black: var(--bg-main);
+    --apex-red: var(--accent-red);
+    --neon-cyan: #00f2ea;
+    --hologram-cyan: #00f2ea;
+    --starlight: #ffffff;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--void-black);
+
+    /* Fallback Cyberpunk Grid Wallpaper */
+    background-image:
+        linear-gradient(rgba(250, 30, 78, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(250, 30, 78, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 50% 10%, rgba(20, 20, 30, 0) 0%, #000 80%),
+        linear-gradient(to bottom, #111, #050505);
+    background-size:
+        50px 50px,
+        50px 50px,
+        100% 100%,
+        100% 100%;
+    background-position: center;
+
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    color: var(--starlight);
+}
+
+/* Scrollbar Styling for Webkit */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--apex-red);
+    border-radius: 3px;
+}
+
+/* The Glass Panel Utility */
+.glass-panel {
+    background: var(--glass-surface);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px black, inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Neon Text */
+.neon-text {
+    text-shadow: 0 0 10px var(--hologram-cyan);
+    color: var(--hologram-cyan);
+}
+
+/* Animations */
+@keyframes HUD-Entry {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.anim-entry {
+    animation: HUD-Entry 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

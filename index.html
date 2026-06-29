@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' file: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: http: blob: file:; connect-src 'self' https: http: blob: data: ws: wss: file:; media-src 'self' https: http: blob: data: file:; frame-src 'self' https: http:; worker-src 'self' blob:;" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#00d4ff" />
+    <meta name="description" content="Apex Browser — AI-powered, privacy-first web browser with 3D wallpapers, extensions, and advanced browsing" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Apex Browser" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Apex Browser" />
+    <meta name="msapplication-TileColor" content="#050510" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./build/icon512.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./build/icon512.png" />
+    <link rel="icon" type="image/png" sizes="256x256" href="./build/icon.png" />
+    
+    <title>Apex 2060</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

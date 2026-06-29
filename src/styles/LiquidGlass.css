@@ -1,0 +1,132 @@
+/* ============================================================
+   LIQUID GLASS DESIGN SYSTEM — iOS 26 Inspired
+   ============================================================
+   Dramatic frosted glass with visible refraction, color bleed,
+   specular highlights, and animated light caustics.
+   ============================================================ */
+
+:root {
+  /* Glass optical properties */
+  --lg-blur: 40px;
+  --lg-saturation: 180%;
+  --lg-brightness: 1.1;
+
+  /* Glass surfaces — darker, matching the dev kit ref */
+  --lg-surface: rgba(20, 25, 35, 0.4);
+  --lg-surface-hover: rgba(30, 40, 55, 0.5);
+  --lg-surface-strong: rgba(10, 15, 20, 0.6);
+
+  /* Borders — bright white glassy edges */
+  --lg-border: rgba(255, 255, 255, 0.2);
+  --lg-border-strong: rgba(255, 255, 255, 0.5);
+  --lg-border-subtle: rgba(255, 255, 255, 0.1);
+
+  /* Inner light — intense refractive lip */
+  --lg-inner-glow: inset 0 2px 2px rgba(255, 255, 255, 0.7), inset 0 -1px 2px rgba(0, 0, 0, 0.5), inset 0 0 24px rgba(255, 255, 255, 0.05);
+
+  /* Shadows — deep space drop shadow */
+  --lg-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --lg-shadow-elevated: 0 24px 80px rgba(0, 0, 0, 0.7);
+
+  /* Specular highlight — sharp white gradient */
+  --lg-specular: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    transparent 40%
+  );
+
+  /* Color refraction tint */
+  --lg-tint: linear-gradient(
+    160deg,
+    rgba(140, 100, 255, 0.1) 0%,
+    transparent 50%,
+    rgba(255, 100, 200, 0.05) 100%
+  );
+
+  /* Accent */
+  --lg-accent: #00d4ff;
+}
+
+/* ---- Animated light caustic / shimmer ---- */
+@keyframes liquidShimmer {
+  0%   { background-position: -200% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes liquidPulse {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+@keyframes liquidFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-2px); }
+}
+
+/* Iridescent color-shift animation */
+@keyframes liquidIridescence {
+  0%   { filter: hue-rotate(0deg) brightness(var(--lg-brightness)); }
+  50%  { filter: hue-rotate(15deg) brightness(1.2); }
+  100% { filter: hue-rotate(0deg) brightness(var(--lg-brightness)); }
+}
+
+/* ---- Reusable .liquid-glass utility ---- */
+.liquid-glass {
+  background:
+    var(--lg-specular),
+    var(--lg-tint),
+    var(--lg-surface);
+  backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturation)) brightness(var(--lg-brightness));
+  -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturation)) brightness(var(--lg-brightness));
+  border: 1px solid var(--lg-border);
+  box-shadow: var(--lg-inner-glow), var(--lg-shadow);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass:hover {
+  background:
+    var(--lg-specular),
+    var(--lg-tint),
+    var(--lg-surface-hover);
+  border-color: var(--lg-border-strong);
+  box-shadow: var(--lg-inner-glow), var(--lg-shadow-elevated);
+}
+
+.liquid-glass-elevated {
+  background:
+    var(--lg-specular),
+    var(--lg-tint),
+    var(--lg-surface-strong);
+  backdrop-filter: blur(40px) saturate(220%) brightness(1.2);
+  -webkit-backdrop-filter: blur(40px) saturate(220%) brightness(1.2);
+  border: 1px solid var(--lg-border-strong);
+  box-shadow: var(--lg-inner-glow), var(--lg-shadow-elevated);
+}
+
+/* ---- Shimmer overlay — animated caustic light ---- */
+.liquid-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.10) 42%,
+    rgba(255, 255, 255, 0.20) 50%,
+    rgba(255, 255, 255, 0.10) 58%,
+    transparent 65%,
+    transparent 100%
+  );
+  background-size: 250% 100%;
+  animation: liquidShimmer 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}

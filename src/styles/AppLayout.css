@@ -1,0 +1,31 @@
+/* Main App Layout Grid */
+.fantasy-layout {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    /* Sidebar width fixed */
+    grid-template-rows: 100vh;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-deep);
+    overflow: hidden;
+}
+
+.fantasy-sidebar-area {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1000;
+}
+
+.fantasy-main-area {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--bg-main);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin: 10px 10px 10px 0;
+    overflow: hidden;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}

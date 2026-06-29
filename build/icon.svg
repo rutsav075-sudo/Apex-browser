@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="18" fill="#0d0d1a"/>
+  <defs>
+    <linearGradient id="apexNeon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff" />
+      <stop offset="100%" stop-color="#bf00ff" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path 
+    d="M 50 5 L 15 80 L 30 80 L 50 32 L 70 80 L 85 80 Z" 
+    fill="url(#apexNeon)" 
+    filter="url(#glow)"
+  />
+  <path 
+    d="M 50 48 L 35 80 L 50 70 L 65 80 Z" 
+    fill="url(#apexNeon)" 
+    filter="url(#glow)"
+  />
+</svg>

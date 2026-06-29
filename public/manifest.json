@@ -1,0 +1,54 @@
+{
+  "name": "Apex Browser",
+  "short_name": "Apex",
+  "description": "AI-powered, privacy-first web browser with 3D wallpapers, extensions, and advanced browsing",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050510",
+  "theme_color": "#00d4ff",
+  "orientation": "any",
+  "scope": "./",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "./build/icon.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./build/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./build/icon1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./build/icon.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./build/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "New Tab",
+      "short_name": "New Tab",
+      "description": "Open a new browser tab",
+      "url": "./index.html"
+    }
+  ],
+  "prefer_related_applications": false
+}
